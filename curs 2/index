@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <p> "a" este un tag care defineste un hyperlink.</p>
+    <p> Cel mai important atribut al lui este "href" care indica o destinatie pt link.</p>
+    <p> Fara href "a" este doar un inlocuitor pentru un hyperlink.</p>
+    <p> Aici avem un exemplu de "a" cu "href" care va redirectioneaza la o pagina notorie pentru mine:</p>
+    <a href="https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation">Gentoo AMD64 Handbook</a>
+    <p>Mai exista si atribute precum "download", "hreflag", "media", "ping", "rel" etc... </p>
+    <p> "a" cu "download"</p>
+    <a download="https://bit.ly/35hQyUk">Dark matter(grub)</a>
+  </body>
+</html>
