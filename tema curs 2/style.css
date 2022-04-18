@@ -1,5 +1,5 @@
-/*============================STRUCTURE===============================================*/
 /*====================================================================================*/
+/*============================STRUCTURE===============================================*/
 html, body /*Se elimina spatiile si marginile*/
 {
     height: 100%;
@@ -21,6 +21,7 @@ header
     position: fixed; 
     top: 0;
     height: 60px;
+    z-index: 100;
 }
 
 .content /* In interiorul lui avem 2 Sidebarur-uri si un Main_Content*/
@@ -55,18 +56,22 @@ header
     right: 0;
 }
 
-
-
 /*------------------------*/
 
-#main_content 
+#main-content 
 {
-    background:green;
+    background-color: rgba(192, 192, 192, 0.7);
     margin-left: 300px;
     margin-right: 300px;
     margin-top: 170px;
     padding: 25px;
+    border-radius: 100px;
+    transition: 1s;
+}
 
+#main-content:hover
+{
+    background-color: rgba(192, 192, 192, 0.95);
 }
 
 /*-------------------------------------------------------------------*/
@@ -90,40 +95,46 @@ h1
     font-size: 45px;
 }
 
-h4
+table
 {
-    font-size: 30px;
+    padding: 0px;
+    margin: 0px;
+    border:  0px;
 }
 
-table, td
+a
 {
-    text-align: center;
+    text-decoration: none;
 }
-
 
 /*================================END_HTML_TAGS=======================================*/
 /*================================CLASSES=============================================*/
 
-.main_content_img
+.main-content-img
 {
     height: auto;
-    width: 248px;
-    transition: 1s;
-    position: relative;
-    
+    width: 350px;
+    transition: 0.5s;
+    float: left;
+    margin-right: 25px;
 }
 
-img:hover
-{
-    opacity: 0;
-}
-
-.main_content_img:hover
+.main-content-img:hover
 {
     height: auto;
-    width: 300px;
-    opacity: 1;
+    width: 750px;
+}
+
+.normal-text
+{
+    font-size: 25px;
+}
+
+.table-buton
+{
+    height: 60px;
     
+    padding: 0px 25px 0px 25px;
 }
 
 /*================================END_CLASSES=========================================*/
