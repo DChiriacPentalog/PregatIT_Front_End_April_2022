@@ -1,3 +1,5 @@
+const { expect } = require("@jest/globals");
+
 jest.useFakeTimers();
 
 describe("Types", () => {
@@ -387,14 +389,18 @@ describe("Lexical Scope", () => {
     (function () {
       var x = 2;
       y = 3;
-      z = 12;
-      expect(x).toBe(2);
-      expect(y).toBe(3);
-      expect(global.z).toBe(12);
+      (function () {
+        z = 12;
+        expect(x).toBe(2);
+        expect(y).toBe(3);
+        expect(global.z).toBe(12);
+        expect(z).toBe(12);
+      })();
     })();
     expect(x).toBe(1);
     expect(y).toBe(3);
     expect(global.z).toBe(12);
+    expect(z).toBe(12);
 
     var a = 1;
     var a = 2;
@@ -442,9 +448,13 @@ describe("Lexical Scope", () => {
       };
     }
     const funcWithClosure2 = getFuncWithClosureModule(10);
+    const funcWithClosure3 = getFuncWithClosureModule(20);
 
     expect(funcWithClosure2()).toEqual(11);
     expect(funcWithClosure2()).toEqual(12);
+
+    expect(funcWithClosure3()).toEqual(21);
+    expect(funcWithClosure3()).toEqual(22);
 
     // this is not Module Pattern, because we can access obj.value
     const obj = {
@@ -483,10 +493,15 @@ describe("Lexical Scope", () => {
      * later in the program execution.
      */
 
+    const module1 = require("./module_1");
     const { func1 } = require("./module_1");
-    const { func2 } = require("./module_2");
+    let module2 = require("./module_2");
+    module2 = require("./module_2");
+    module2 = require("./module_2");
+
+    console.log(module1);
     expect(func1()).toEqual(1);
-    expect(func2()).toEqual(2);
+    expect(module2.func2()).toEqual(2);
   });
 });
 
