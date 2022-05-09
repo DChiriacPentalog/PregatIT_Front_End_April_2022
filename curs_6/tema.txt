@@ -1,0 +1,5 @@
+> Intr-o pagina HTML (index.html)
+> Sa se dezvolte o aplicatie de TO DO.
+> Sa se foloseasca promisiuni pentru a salva si retrage date din localstorage
+> Sa se foloseasca obiecte pentru a defini instructiunile de CRUD pe lista de TO DO. (chiar daca nimeni nu mai face asta in 2021)
+> UI-ul sa corespunda cu state-ul din obiectul definit la linia 4.
