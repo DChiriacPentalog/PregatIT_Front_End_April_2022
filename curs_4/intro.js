@@ -77,3 +77,10 @@ resultat = [1, 2, 3].reduce((acc, value, index, arr) => {
   return acc + value;
 }, 10);
 console.log("reduce", resultat);
+
+const obj1 = { a, b };
+const obj2 = { a, b };
+
+console.log(obj1 === obj2);
+
+console.log("-----------------------------------------------------");
