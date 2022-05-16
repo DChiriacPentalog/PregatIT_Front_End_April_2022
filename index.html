@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Page</title>
+    </head>
+<!------------------------------------------------------------------------------>
+    <body>
+        <div style="margin-left: 50px; padding: 15px; font-size: 30px;">
+            TODO :)
+        </div>
+        <ul id = "taskList">
+            <li class="task"> Task 1 <input class = "inputCheckbox" type="checkbox"> </li>
+        </ul>
+        <input id = "addInput">
+        <button id = "addButton" onclick="addTask()">Add</button>
+        <br>
+        <button id="deleteButton" onclick="removeSelected()">Delete</button>
+    </body>
+<!------------------------------------------------------------------------------>
+    <style>
+        #addInput
+        {
+            padding: 15px;
+            margin-left: 50px;
+        }
+
+        #addButton
+        {
+            padding: 15px;
+        }
+
+        #deleteButton
+        {
+            padding: 15px;
+            margin:5px 0px 0px 50px;
+        }
+
+        .task
+        {
+            background-color: gray;
+            padding: 20px 100px 20px 20px;
+            max-width: 25%;
+            margin: 10px;
+        }
+
+        .inputCheckbox
+        {
+            float: right;
+        }
+    </style>
+<!------------------------------------------------------------------------------>
+    <script>
+        function addTask()
+        {
+            var myList = document.getElementById("taskList");                                           //am preluat lista
+            var newTask = document.createElement("li");                                                 //am creat tagul li
+            newTask.classList.add("task");                                                              //am atasat tagului li clasa necesara
+            newTask.appendChild(document.createTextNode( document.getElementById("addInput").value ));  //am citit textul din input si l-am introdus in li
+            //trebuie sa incarcam si un checkbox
+            var newCheckbox = document.createElement("input");      //create Input  
+            newCheckbox.setAttribute("type", "checkbox");           //
+            newCheckbox.classList.add("inputCheckbox");             //
+            newTask.appendChild(newCheckbox);                       //
+
+            myList.appendChild(newTask);                                                                //incarcam li in lista finala
+            document.getElementById("addInput").value = "";
+        }
+
+        function removeSelected()
+        {
+            var myList = document.getElementById("taskList");                                           
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var checkbox of checkboxes) {
+                if(checkbox.checked == true)
+                {
+                    checkbox.parentNode.remove();
+                }
+            }
+        }
+    </script>
+</html>
