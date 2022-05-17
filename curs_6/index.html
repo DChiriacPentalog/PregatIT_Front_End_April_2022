@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        height: 10000px;
+      }
+
+      button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="button" onclick="onButtonClick()">click me</button>
+  </body>
+
+  <script>
+    function onButtonClick() {
+      alert("clicked");
+    }
+
+    let prevScrollY = 0;
+    window.addEventListener("scroll", () => {
+      const button = document.getElementById("button");
+      if (window.scrollY < prevScrollY) {
+        button.style.top = "100px";
+      } else {
+        button.style.top = "20px";
+      }
+      prevScrollY = window.scrollY;
+    });
+  </script>
+</html>
