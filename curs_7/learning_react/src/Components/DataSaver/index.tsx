@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 const LOCAL_STORAGE_KEY = "data-saver-content";
 
 export default function DataSaver(): JSX.Element {
-  const [text, setText] = useState("");
+  const [text, setText] = useState({ message: "", time: Date.now() });
 
   useEffect(() => {
     const value = localStorage.getItem(LOCAL_STORAGE_KEY) || "";
-    setText(value);
+    setText(value && JSON.parse(value));
 
     console.log("First render of DataSaver Component");
 
@@ -25,18 +25,23 @@ export default function DataSaver(): JSX.Element {
   }, [text]);
 
   function onTextareaChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    setText(e.target.value);
+    setText({ message: e.target.value, time: Date.now() });
   }
 
   function onSaveBtnClick(): void {
-    localStorage.setItem(LOCAL_STORAGE_KEY, text);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(text));
   }
 
   return (
     <>
       <h1>Data Saver</h1>
-      <textarea rows={5} cols={50} value={text} onChange={onTextareaChange} />
-      <br />
+      <textarea
+        rows={5}
+        cols={50}
+        value={text.message}
+        onChange={onTextareaChange}
+      />
+      <p>Last update: {new Date(text.time).toLocaleTimeString()}</p>
       <button onClick={onSaveBtnClick}>Save</button>
     </>
   );
