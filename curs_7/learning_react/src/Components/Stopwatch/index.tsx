@@ -35,11 +35,14 @@ export default function Stopwatch() {
   return (
     <Timer>
       <h1>Stopwatch</h1>
+      <span className="comment">*Laps to be added</span>
+
       <Values>
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
       </Values>
+
       <Buttons>
         <Button onClick={start}>
           <PlayCircleIcon />
