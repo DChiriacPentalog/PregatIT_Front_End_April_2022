@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+
+import "./Stopwatch.css"
+
 const Stopwatch = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
   React.useEffect(() => {
-    let interval: any = null;
+    let interval: any;
 
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
@@ -39,10 +42,10 @@ const Stopwatch = () => {
   );
   const ActiveButtons = (
     <div className="btn-group">
-      <div className="btn btn-two" onClick={handleReset}>
+      <div className="btn btn-one" onClick={handleReset}>
         Reset
       </div>
-      <div className="btn btn-one" onClick={handlePauseResume}>
+      <div className="btn btn-two" onClick={handlePauseResume}>
         {isPaused ? "Resume" : "Pause"}
       </div>
     </div>
@@ -61,7 +64,7 @@ const Stopwatch = () => {
           {("0" + ((time / 10) % 100)).slice(-2)}
         </span>
       </div>
-      <div className="Control-Buttons">
+      <div className="control-buttons">
         <div>{isActive ? ActiveButtons : StartButton}</div>
       </div>
     </div>

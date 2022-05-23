@@ -46,13 +46,14 @@
 }
 
 .calculate {
-  background-color: #eee;
+  background-color: rgb(47, 47, 47);
   padding: 0.4rem 1rem;
   display: grid;
   grid-template-columns: minmax(0px, 50px) repeat(2, 1fr);
   font-size: 1.8rem;
   font-weight: 300;
   overflow: hidden;
+  box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .calculate > button {
