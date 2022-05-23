@@ -1,5 +1,9 @@
+import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Timer } from "./styled";
+import { Timer, Values, Buttons } from "./styled";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import PauseCircleIcon from "@mui/icons-material/PauseCircle";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 export default function Stopwatch() {
   const [isActive, setIsActive] = useState(false);
@@ -29,15 +33,24 @@ export default function Stopwatch() {
   }
 
   return (
-    <>
-      <Timer>
-        <div>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</div>
-        <div>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</div>
-        <div>{("0" + ((time / 10) % 100)).slice(-2)}</div>
-      </Timer>
-      <button onClick={start}>Start</button>
-      <button onClick={stop}>Stop</button>
-      <button onClick={reset}>Reset</button>
-    </>
+    <Timer>
+      <h1>Stopwatch</h1>
+      <Values>
+        <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+        <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+        <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
+      </Values>
+      <Buttons>
+        <Button onClick={start}>
+          <PlayCircleIcon />
+        </Button>
+        <Button onClick={stop}>
+          <PauseCircleIcon />
+        </Button>
+        <Button onClick={reset}>
+          <RestartAltIcon />
+        </Button>
+      </Buttons>
+    </Timer>
   );
 }
