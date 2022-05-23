@@ -46,7 +46,7 @@
 }
 
 .calculate {
-  background-color: #000;
+  background-color: #eee;
   padding: 0.4rem 1rem;
   display: grid;
   grid-template-columns: minmax(0px, 50px) repeat(2, 1fr);
