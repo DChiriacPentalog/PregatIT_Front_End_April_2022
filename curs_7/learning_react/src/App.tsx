@@ -1,10 +1,12 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.style.css";
 import Counter from "./Components/Counter";
+import Stopwatch from "./Components/Stopwatch";
 
 export enum AppRoutes {
   home = "/",
   counter = "/counter",
+  stopwatch = "/stopwatch",
 }
 
 export default function App() {
@@ -19,6 +21,9 @@ export default function App() {
             <Link to={AppRoutes.counter}>
               <li>Counter</li>
             </Link>
+            <Link to={AppRoutes.stopwatch}>
+              <li>Stopwatch</li>
+            </Link>
           </ul>
         </nav>
 
@@ -29,6 +34,7 @@ export default function App() {
               element={<h1>Please select a project from the left side</h1>}
             />
             <Route path={AppRoutes.counter} element={<Counter />} />
+            <Route path={AppRoutes.stopwatch} element={<Stopwatch />} />
           </Routes>
         </main>
       </div>
