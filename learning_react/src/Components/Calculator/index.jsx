@@ -6,7 +6,7 @@ const Calculator = () => {
 
   const handleNumber = (e) => {
     const value = e.target.value;
-    setNumber(operand => operand + value);
+    setNumber(number => number + value);
   }
 
   const handleOperator = (e) => {
@@ -50,11 +50,6 @@ const Calculator = () => {
       return;
     }
 
-
-
-    if (value === "%") {
-      if (number === "") return;
-    }
 
     let newOperand;
 

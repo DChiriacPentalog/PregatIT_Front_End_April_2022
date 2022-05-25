@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.style.css";
-import {Counter, Stopwatch, Calculator} from "./Components";
+import {Counter, Stopwatch, Calculator, Todos} from "./Components";
 import {FiHome } from 'react-icons/fi'
 import {MdOutlineTimer} from 'react-icons/md';
 import {AiOutlineFieldNumber, AiOutlineCalculator} from 'react-icons/ai'
@@ -9,7 +9,8 @@ export enum AppRoutes {
   home = "/",
   counter = "/counter",
   stopwatch = "/stopwatch",
-  calc = "/calc"
+  calc = "/calc",
+  todo = "/todo"
 }
 
 export default function App() {
@@ -30,6 +31,9 @@ export default function App() {
             <Link to={AppRoutes.calc}>
               <AiOutlineCalculator/><li>Calculator</li>
             </Link>
+            <Link to={AppRoutes.todo}>
+              <AiOutlineCalculator/><li>Todo</li>
+            </Link>
           </ul>
         </nav>
 
@@ -42,6 +46,7 @@ export default function App() {
             <Route path={AppRoutes.counter} element={<Counter />} />
             <Route path={AppRoutes.stopwatch} element={<Stopwatch />} />
             <Route path={AppRoutes.calc} element={<Calculator />} />
+            <Route path={AppRoutes.todo} element={<Todos />} />
           </Routes>
         </main>
       </div>
