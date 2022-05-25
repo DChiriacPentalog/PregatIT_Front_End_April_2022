@@ -1,0 +1,26 @@
+.todo-input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    font-size: 26px;
+}
+
+
+
+.button{
+    background: #1f2937;
+    color: #eee;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+}
+
+
+.button:hover,
+.button:focus{
+    background: #10151b;
+}

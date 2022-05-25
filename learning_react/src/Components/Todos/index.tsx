@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Todos.css"
 function Todos() {
   const [todos, setTodos] = useState<any[]>([]);
   const [todo, setTodo] = useState("");
@@ -10,6 +10,14 @@ function Todos() {
       text: todo,
       completed: false,
     };
+    if (todo.trim().length === 0) {
+        alert("Please enter a todo");
+        return;
+      }
+      else if( todo.trim().length === 1){
+        alert("Please enter a valid todo");
+        return;
+      }
     setTodos([...todos, newTodo]); //setTodos([...todos]concat newTodo)
     setTodo("");
   };
@@ -30,14 +38,16 @@ function Todos() {
     setTodos(updatedTodos);
   }
   return (
-    <div className="App">
+    <div>
       <form onSubmit={handleSubmit}>
         <input
+        className="todo-input"
           type="text"
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
+          autoFocus
         />
-        <button type="submit">Add todo</button>
+        <button className="button add-button"  type="submit">Add todo</button>
       </form>
 
 
@@ -46,7 +56,7 @@ function Todos() {
         <div key={todo.id}>
 
           <div>{todo.text}</div>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <button className="button delete-button"onClick={() => deleteTodo(todo.id)}>Delete</button>
           <input type="checkbox" onChange={() => toggleTodo(todo.id)}/>
 
         </div>)}
