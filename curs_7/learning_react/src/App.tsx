@@ -1,7 +1,8 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.style.css";
-import Counter from "./Components/Counter";
 import ComponentProps from "./Components/ComponentProps";
+import Counter from "./Components/Counter";
+import Dashboard from "./Components/Dashboard";
 import DataSaver from "./Components/DataSaver";
 
 export enum AppRoutes {
@@ -9,6 +10,7 @@ export enum AppRoutes {
   counter = "/counter",
   ComponentProps = "/ComponentProps",
   DataSaver = "/DataSaver",
+  Dashboard = "/Dashboard",
 }
 
 export default function App() {
@@ -29,6 +31,9 @@ export default function App() {
             <Link to={AppRoutes.DataSaver}>
               <li>Data Saver</li>
             </Link>
+            <Link to={AppRoutes.Dashboard}>
+              <li>Dashboard</li>
+            </Link>
           </ul>
         </nav>
 
@@ -44,6 +49,7 @@ export default function App() {
               element={<ComponentProps />}
             />
             <Route path={AppRoutes.DataSaver} element={<DataSaver />} />
+            <Route path={AppRoutes.Dashboard} element={<Dashboard />} />
           </Routes>
         </main>
       </div>

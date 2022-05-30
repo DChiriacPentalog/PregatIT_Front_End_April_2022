@@ -1,0 +1,10 @@
+.dashboard__root-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.dashboard__root-container > *:last-child {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+}
