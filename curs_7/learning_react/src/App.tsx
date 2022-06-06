@@ -4,6 +4,7 @@ import ComponentProps from "./Components/ComponentProps";
 import Counter from "./Components/Counter";
 import Dashboard from "./Components/Dashboard";
 import DataSaver from "./Components/DataSaver";
+import FullApplication from "./Components/FullApplication";
 
 export enum AppRoutes {
   home = "/",
@@ -11,6 +12,7 @@ export enum AppRoutes {
   ComponentProps = "/ComponentProps",
   DataSaver = "/DataSaver",
   Dashboard = "/Dashboard",
+  FullApplication = "/FullApplication/*",
 }
 
 export default function App() {
@@ -34,6 +36,9 @@ export default function App() {
             <Link to={AppRoutes.Dashboard}>
               <li>Dashboard</li>
             </Link>
+            <Link to={AppRoutes.FullApplication}>
+              <li>FullApplication</li>
+            </Link>
           </ul>
         </nav>
 
@@ -50,6 +55,10 @@ export default function App() {
             />
             <Route path={AppRoutes.DataSaver} element={<DataSaver />} />
             <Route path={AppRoutes.Dashboard} element={<Dashboard />} />
+            <Route
+              path={AppRoutes.FullApplication}
+              element={<FullApplication />}
+            />
           </Routes>
         </main>
       </div>
