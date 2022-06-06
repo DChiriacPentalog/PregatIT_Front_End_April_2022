@@ -4,13 +4,15 @@ import {Counter, Stopwatch, Calculator, Todos} from "./Components";
 import {FiHome } from 'react-icons/fi'
 import {MdOutlineTimer} from 'react-icons/md';
 import {AiOutlineFieldNumber, AiOutlineCalculator} from 'react-icons/ai'
+import {RiCalendarTodoLine} from 'react-icons/ri'
 
 export enum AppRoutes {
   home = "/",
   counter = "/counter",
   stopwatch = "/stopwatch",
   calc = "/calc",
-  todo = "/todo"
+  todo = "/todo",
+  dashboard = "/dashboard"
 }
 
 export default function App() {
@@ -32,7 +34,7 @@ export default function App() {
               <AiOutlineCalculator/><li>Calculator</li>
             </Link>
             <Link to={AppRoutes.todo}>
-              <AiOutlineCalculator/><li>Todo</li>
+              <RiCalendarTodoLine/><li>Todo</li>
             </Link>
           </ul>
         </nav>
@@ -47,6 +49,7 @@ export default function App() {
             <Route path={AppRoutes.stopwatch} element={<Stopwatch />} />
             <Route path={AppRoutes.calc} element={<Calculator />} />
             <Route path={AppRoutes.todo} element={<Todos />} />
+            <Route path={AppRoutes.dashboard} element={<h1>Dashboard</h1>} />s
           </Routes>
         </main>
       </div>

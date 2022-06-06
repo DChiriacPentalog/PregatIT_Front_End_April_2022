@@ -1,26 +1,75 @@
-.todo-input{
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    font-size: 26px;
+.todo-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  font-size: 26px;
 }
 
-
-
-.button{
-    background: #1f2937;
-    color: #eee;
-    text-align: center;
-    vertical-align: middle;
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: none;
-    font-size: 24px;
+.button {
+  background: #1f2937;
+  color: #eee;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
-
 
 .button:hover,
-.button:focus{
-    background: #10151b;
+.button:focus {
+  background: #10151b;
 }
+
+#checkbox{
+    margin-left: 2px;
+}
+
+.todos{
+    font-size: 30px;
+}
+
+
+.flex{
+    display: flex;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+
+.flex-row{
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
+}
+
+input[type='checkbox'] {
+    appearance: none;
+    vertical-align: middle;
+    outline: none;
+    font-size: inherit;
+    cursor: pointer;
+    width: 1.0em;
+    height: 1.0em;
+    background: white;
+    border-radius: 0.25em;
+    border: 0.125em solid #555;
+    position: relative;
+  }
+
+  input[type='checkbox']:checked {
+    background: #adf;
+  }
+
+  input[type='checkbox']:checked:after {
+    content: "✔";
+    position: absolute;
+    font-size: 90%;
+    left: 0.0625em;
+    top: -0.25em;
+  }
