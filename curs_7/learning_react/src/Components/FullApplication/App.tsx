@@ -2,15 +2,10 @@ import { useContext } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import Dashboard from "../Dashboard";
 import withAuthentication, { AuthenticationContext } from "./authentication";
-
-function XYZ() {
-  const { isAuthenticated } = useContext(AuthenticationContext);
-
-  return <></>;
-}
+import LogIn from "./LogIn";
 
 function App() {
-  const { isAuthenticated } = useContext(AuthenticationContext);
+  const { isAuthenticated, logOut } = useContext(AuthenticationContext);
 
   return (
     <>
@@ -21,6 +16,7 @@ function App() {
         <Link to="dashboard">
           <button>Dashboard</button>
         </Link>
+        {isAuthenticated && <button onClick={logOut}>Log out</button>}
       </div>
 
       <br />
@@ -29,7 +25,7 @@ function App() {
         <Route path="" element={<>Home</>} />
         <Route
           path="dashboard"
-          element={isAuthenticated ? <Dashboard /> : <>Login first</>}
+          element={isAuthenticated ? <Dashboard /> : <LogIn />}
         />
       </Routes>
     </>
