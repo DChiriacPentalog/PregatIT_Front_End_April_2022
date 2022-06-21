@@ -1,24 +1,12 @@
 import React, { createContext, useEffect, useState } from "react";
-import { initializeApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
 } from "firebase/auth";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAzLtHb1CQLcYyy-GSJgd-MMU-2LQkWz2o",
-  authDomain: "fullapplication-65891.firebaseapp.com",
-  projectId: "fullapplication-65891",
-  storageBucket: "fullapplication-65891.appspot.com",
-  messagingSenderId: "1000318969548",
-  appId: "1:1000318969548:web:e40a12e1a480e27a7e8469",
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+import { app } from "..";
 
 export const AuthenticationContext = createContext({
   isAuthenticated: false,
@@ -27,6 +15,8 @@ export const AuthenticationContext = createContext({
 });
 
 export default function withAuthentication(Component: React.FC): React.FC {
+  const auth = getAuth(app);
+
   return function AuthenticationStore() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
